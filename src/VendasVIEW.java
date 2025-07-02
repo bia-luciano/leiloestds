@@ -17,7 +17,7 @@ public class VendasVIEW extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnvoltar = new javax.swing.JButton();
+        btnsair = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
 
@@ -26,10 +26,10 @@ public class VendasVIEW extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("VENDAS");
 
-        btnvoltar.setText("VOLTAR");
-        btnvoltar.addActionListener(new java.awt.event.ActionListener() {
+        btnsair.setText("SAIER");
+        btnsair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnvoltarActionPerformed(evt);
+                btnsairActionPerformed(evt);
             }
         });
 
@@ -60,7 +60,7 @@ public class VendasVIEW extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(191, 191, 191)
-                        .addComponent(btnvoltar)))
+                        .addComponent(btnsair)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -71,16 +71,35 @@ public class VendasVIEW extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnvoltar)
+                .addComponent(btnsair)
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnvoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvoltarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnvoltarActionPerformed
+    private void btnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsairActionPerformed
+       
+        dispose(); /*try {
+            int linhaSelecionada = table.getSelectedRow();
+            
+        if (linhaSelecionada == -1) {
+            JOptionPane.showMessageDialog(null, "Selecione um produto para vender!");
+            return;
+        }
+            int idProduto = (int) table.getValueAt(linhaSelecionada, 0);
+            
+        ProdutosDAO dao = new ProdutosDAO();
+        dao.venderProduto(idProduto);
+        
+        JOptionPane.showMessageDialog(null, "Produto vendido com sucesso!");
+        
+        listarProdutosVendidos(); //atualização de tabela
+                
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao vender produto: " + e.getMessage());
+        }*/ 
+    }//GEN-LAST:event_btnsairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,7 +158,7 @@ public class VendasVIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnvoltar;
+    private javax.swing.JButton btnsair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;
